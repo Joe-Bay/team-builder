@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import './App.css';
+import MemberForm from './MemberForm'
+import Member from './Member'
 
 const initialFormValues = {
   name: '',
-  hobbie: '',
+  hobby: '',
   country: '',
   favoriteQuote: '',
 }
@@ -25,11 +27,13 @@ const updateForm = (inputName, inputValue) => { // this is what makes it so our 
 const submitForm = () => {
   const newMember = {// this is what creates a new member, the trim cuts any white space (spaces that someone may have inserted in the input box)
     name: formValues.name.trim(),
-    hobbie: formValues.hobbie.trim(),
+    hobbie: formValues.hobby.trim(),
     country: formValues.country.trim(),
     favoriteQuote: formValues.favoriteQuote.trim(),
   }
-  if(!newMember.name || newMember.hobbie || newMember.country || newMember.favoriteQuote) return
+  if(!newMember.name || newMember.hobby || newMember.country || newMember.favoriteQuote) return
+
+  return newMember
 
   
 }
@@ -38,7 +42,11 @@ const submitForm = () => {
 
   return (
     <div className="App">
-
+      <MemberForm 
+      update = {updateForm}
+      submit = {submitForm}
+      values = {formValues}
+      />
 
     </div>
   );

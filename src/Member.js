@@ -10,9 +10,9 @@ export default function Member(props) {
     return (
         <div className='member container'>
             <h2>{details.name}</h2>
-            <p>Hobbie: {details.hobbie}</p>
-            <p>Country: {details.country}</p>
-            <p>Favorite Quote {details.favoriteQuote}</p>
+            <p>Email: {details.email}</p>
+            <p>Role: {details.role}</p>
+
         </div>
     )
 }

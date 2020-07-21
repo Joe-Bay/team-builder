@@ -16,10 +16,10 @@ export default function MemberForm(props) {
     }
 
     return (
-        <form className = 'form container' onSubmit={onSubmit}>
+        <form className = 'form container' >
             <div className='form-group submit'>
                 <h2>Add Member</h2>
-                <button>Submit</button>
+                <button onClick={onSubmit}>Submit</button>
             </div>
 
             <div className='form-group-inputs'>
@@ -35,28 +35,22 @@ export default function MemberForm(props) {
                 onChange={onChange}
                 /><br/>
                 </label>
-        <label>Hobby
+        <label>Email
             <input 
-                name='hobbie'
-                type='text'
-                placeholder='Enter Hobby'
+                name='email'
+                type='email'
+                placeholder='Enter email'
                 maxLength='15'
+                value={values.email}
+                onChange={onChange}
                 /><br/>
-        <label>Country
-            <input 
-                name='hobbie'
-                type='text'
-                placeholder='Enter Hobby'
-                maxLength='15'
-                />
-            </label><br/>
-            <label>Favorite Quote
-            <input 
-                name='favorite quote'
-                type='text'
-                placeholder='Enter favorite quote'
-                maxLength='30'
-                />
+        <label>Role
+                <select name='role' value={values.role} onChange={onChange}>
+                    <option value=''>Select a Role</option>
+                    <option value='Front-End Engineer'>Front-End Engineer</option>
+                    <option value='Food Truck Operator'>Food Truck Operator</option>
+                    <option value='Chicken Nugget Specialist'>Chicken Nugget Specialist</option>
+                </select>
             </label>
                 </label>
             </div>

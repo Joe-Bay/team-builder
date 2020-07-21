@@ -5,9 +5,8 @@ import Member from './Member'
 
 const initialFormValues = {
   name: '',
-  hobby: '',
-  country: '',
-  favoriteQuote: '',
+  email: '',
+  role: '',
 }
 
 function App() {
@@ -27,13 +26,14 @@ const updateForm = (inputName, inputValue) => { // this is what makes it so our 
 const submitForm = () => {
   const newMember = {// this is what creates a new member, the trim cuts any white space (spaces that someone may have inserted in the input box)
     name: formValues.name.trim(),
-    hobbie: formValues.hobby.trim(),
-    country: formValues.country.trim(),
-    favoriteQuote: formValues.favoriteQuote.trim(),
+    email: formValues.email.trim(),
+    role: formValues.role.trim(),
   }
-  if(!newMember.name || newMember.hobby || newMember.country || newMember.favoriteQuote) return
+  if(!newMember.name || newMember.email || newMember.role) return
 
-  return newMember
+  return setMembers(newMember);
+
+
 
   
 }
@@ -47,6 +47,13 @@ const submitForm = () => {
       submit = {submitForm}
       values = {formValues}
       />
+      {
+        members.map(member => {
+          return (
+          <Member key={member.name} details={member} />
+          )
+        })
+      }
 
     </div>
   );

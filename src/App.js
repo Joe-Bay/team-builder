@@ -2,6 +2,23 @@ import React, { useState } from 'react';
 import './App.css';
 import MemberForm from './MemberForm'
 import Member from './Member'
+import styled from 'styled-components'
+
+
+
+const styledMembers = styled.div`
+background-color: lightgray;
+border-radius: '10px';
+`
+// const initialMembers= [
+//   {
+//     id: 0,
+//     name: 'Joe',
+//     email: 'joe@joe.com',
+//     role: 'Student'
+//   }
+// ]
+
 
 const initialFormValues = {
   name: '',
@@ -11,6 +28,7 @@ const initialFormValues = {
 
 function App() {
   const [members, setMembers] = useState([])
+  console.log(members)
 
   const [formValues, setFormValues] = useState(initialFormValues)
 
@@ -29,13 +47,11 @@ const submitForm = () => {
     email: formValues.email.trim(),
     role: formValues.role.trim(),
   }
-  if(!newMember.name || newMember.email || newMember.role) return
+  if(!newMember.name || !newMember.email || !newMember.role) {return}
 
-  return setMembers(newMember);
+  setMembers([newMember, ...members])
+  setFormValues(initialFormValues)
 
-
-
-  
 }
 
 
@@ -47,14 +63,16 @@ const submitForm = () => {
       submit = {submitForm}
       values = {formValues}
       />
+      <styledMembers>
       {
-        members.map(member => {
-          return (
-          <Member key={member.name} details={member} />
-          )
-        })
-      }
+       members.map(member => {
+         return (
+        <Member key={members[member]} details={member}/>
+         )
+       })
 
+      }
+      </styledMembers>
     </div>
   );
 }

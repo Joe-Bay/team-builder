@@ -40,7 +40,7 @@ export default function MemberForm(props) {
                 name='email'
                 type='email'
                 placeholder='Enter email'
-                maxLength='15'
+                maxLength='20'
                 value={values.email}
                 onChange={onChange}
                 /><br/>

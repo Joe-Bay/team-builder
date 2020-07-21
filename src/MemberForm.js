@@ -18,7 +18,7 @@ export default function MemberForm(props) {
     return (
         <form className = 'form container' >
             <div className='form-group submit'>
-                <h2>Add Member</h2>
+                <h1>Add Member</h1>
                 <button onClick={onSubmit}>Submit</button>
             </div>
 

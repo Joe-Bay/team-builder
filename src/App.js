@@ -6,10 +6,7 @@ import styled from 'styled-components'
 
 
 
-const styledMembers = styled.div`
-background-color: lightgray;
-border-radius: '10px';
-`
+
 // const initialMembers= [
 //   {
 //     id: 0,
@@ -28,7 +25,6 @@ const initialFormValues = {
 
 function App() {
   const [members, setMembers] = useState([])
-  console.log(members)
 
   const [formValues, setFormValues] = useState(initialFormValues)
 
@@ -63,7 +59,7 @@ const submitForm = () => {
       submit = {submitForm}
       values = {formValues}
       />
-      <styledMembers>
+      <div className='memberDiv'>
       {
        members.map(member => {
          return (
@@ -72,7 +68,7 @@ const submitForm = () => {
        })
 
       }
-      </styledMembers>
+      </div>
     </div>
   );
 }

@@ -1,8 +1,24 @@
 .App {
   text-align: center;
 
+
 }
+.App h1{
+  font-size: 5rem;
+  color:white;
+}
+.App button{
+  padding: 10px;
+  font-size: 1.5rem;
+  background-color:mistyrose;
+  border-radius: 10px;
+}
+
 body{
   background-color: deepskyblue;
+}
+.memberDiv{
+  margin-right: 20%;
+  margin-left: 20%;
 }
 
